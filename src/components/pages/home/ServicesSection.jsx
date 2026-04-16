@@ -71,7 +71,7 @@ const ServicesSection = () => {
             center={true}
           />
           <p className="max-w-2xl mx-auto text-[#ffffffbf]">
-            At ArkPoultry Farm, we provide a full range of poultry services designed to enhance farm productivity, promote sustainability, and boost profitability through innovative agricultural practices and expert guidance.
+            At Ark Poultry Farm, we provide a full range of poultry services designed to enhance farm productivity, promote sustainability, and boost profitability through innovative agricultural practices and expert guidance.
           </p>
         </div>
 

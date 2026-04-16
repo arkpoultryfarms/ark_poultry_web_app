@@ -8,13 +8,13 @@ export default function OurStory() {
             <div>
               <SectionTitle title="Our Story" subtitle="From Humble Beginnings to a Leader in Poultry Excellence" />
               <p className="text-gray-600 mb-6">
-                ArkPoultry Farm was founded with a simple but powerful mission — to produce quality poultry products through ethical and sustainable farming practices. What started as a modest family-run venture with just a few hundred birds has now grown into one of the region’s most trusted providers of farm-fresh poultry and agricultural consulting services.
+                Ark Poultry Farm was founded with a simple but powerful mission — to produce quality poultry products through ethical and sustainable farming practices. What started as a with just a few hundred birds has now grown into one of the region’s most trusted providers of farm-fresh poultry and agricultural consulting services.
               </p>
               <p className="text-gray-600 mb-6">
                 Over the years, our dedication to animal welfare, sustainable methods, and food quality has remained the foundation of our success. We believe that healthy, well-cared-for birds produce the best eggs and meat, and that responsible farming benefits both the community and the environment.
               </p>
               <p className="text-gray-600">
-                Today, ArkPoultry proudly supplies premium poultry products to households, restaurants, and markets across the country — while continuing to innovate and set new standards for excellence in modern agriculture.
+                Today, Ark Poultry proudly supplies premium poultry products to households, restaurants, and markets across the country — while continuing to innovate and set new standards for excellence in modern agriculture.
               </p>
             </div>
             <div className="overflow-hidden shadow-xl">

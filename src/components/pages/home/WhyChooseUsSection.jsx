@@ -59,7 +59,7 @@ const WhyChooseUsSection = () => {
               center={false}
             />
             <p className="mb-8 text-white/90">
-              At ArkPoultry Farm, we don’t just raise birds — we build trust, deliver quality, and champion sustainable farming. Here’s why farmers, partners, and communities choose us:
+              At Ark Poultry Farm, we don’t just raise birds — we build trust, deliver quality, and champion sustainable farming. Here’s why farmers, partners, and communities choose us:
             </p>
 
             {/* Grid with dividers */}

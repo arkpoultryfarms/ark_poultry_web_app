@@ -17,22 +17,22 @@ const geistMono = Geist_Mono({
 export const metadata = {
   metadataBase: new URL("https://www.arkpoultry.com"), // Your production URL
   title: {
-    default: "ArkPoultry | Sustainable Poultry Farming",
-    template: "%s | ArkPoultry",
+    default: "Ark Poultry | Sustainable Poultry Farming",
+    template: "%s | Ark Poultry",
   },
   description:
-    "ArkPoultry champions sustainable poultry farming practices in Nigeria, providing high-quality poultry products and expert services.",
+    "Ark Poultry champions sustainable poultry farming practices in Nigeria, providing high-quality poultry products and expert services.",
   keywords: [
-    "ArkPoultry",
+    "Ark Poultry",
     "poultry farming",
     "sustainable agriculture",
     "organic poultry",
     "Oyo State poultry",
     "Nigeria farming",
   ],
-  authors: [{ name: "ArkPoultry Team", url: "https://www.arkpoultry.com" }],
-  creator: "ArkPoultry",
-  publisher: "ArkPoultry Ltd",
+  authors: [{ name: "Ark Poultry Team", url: "https://www.arkpoultry.com" }],
+  creator: "Ark Poultry",
+  publisher: "Ark Poultry Ltd",
   robots: {
     index: true,
     follow: true,
@@ -46,16 +46,16 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: "https://www.arkpoultry.com",
-    title: "ArkPoultry | Sustainable Poultry Farming",
+    title: "Ark Poultry | Sustainable Poultry Farming",
     description:
-      "Discover ArkPoultry’s commitment to sustainable poultry production in Nigeria.",
-    siteName: "ArkPoultry",
+      "Discover Ark Poultry’s commitment to sustainable poultry production in Nigeria.",
+    siteName: "Ark Poultry",
     images: [
       {
         url: "https://www.arkpoultry.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "ArkPoultry sustainable farming",
+        alt: "Ark Poultry sustainable farming",
       },
     ],
     locale: "en_US",
@@ -64,9 +64,9 @@ export const metadata = {
     card: "summary_large_image",
     site: "@arkpoultry",
     creator: "@arkpoultry",
-    title: "ArkPoultry | Sustainable Poultry Farming",
+    title: "Ark Poultry | Sustainable Poultry Farming",
     description:
-      "ArkPoultry promotes eco-friendly poultry practices and quality farming solutions.",
+      "Ark Poultry promotes eco-friendly poultry practices and quality farming solutions.",
     images: ["https://www.arkpoultry.com/og-image.jpg"],
   },
   icons: {
@@ -81,7 +81,7 @@ export default function RootLayout({ children }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "ArkPoultry",
+    name: "Ark Poultry",
     url: "https://www.arkpoultry.com",
     logo: "https://www.arkpoultry.com/logo.png",
     contactPoint: {

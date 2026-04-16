@@ -163,7 +163,7 @@ const Footer = () => {
                   className="mr-2 mt-1 text-[#d57315] flex-shrink-0"
                 />
                 <span className="text-gray-300">
-                  Lakonu Village, Off Oyo-Iseyin Road, Oyo Town Oyo State Nigeria
+                21 Johnson Oguntuyo Street Atunrase Estate Gbagada Lagos
                 </span>
               </li>
               <li className="flex items-center">
@@ -178,14 +178,14 @@ const Footer = () => {
                   size={20}
                   className="mr-2 text-[#d57315] flex-shrink-0"
                 />
-                <span className="text-gray-300">sales@arkPoultry.com</span>
+                <span className="text-gray-300">info@arkPoultry.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} arkpoultry. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Ark Poultry. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -31,7 +31,7 @@ const AboutSection = () => {
               center={false}
             />
             <p className="text-gray-600 mb-6">
-              At ArkPoultry Farm, we are dedicated to raising healthy birds and delivering premium poultry products through ethical and sustainable farming practices. With years of hands-on experience, our team combines modern farming technology with time-tested methods to ensure top-quality eggs, meat, and agricultural consulting services.
+              At Ark Poultry Farm, we are dedicated to raising healthy birds and delivering premium poultry products through ethical and sustainable farming practices. With years of hands-on experience, our team combines modern farming technology with time-tested methods to ensure top-quality eggs, meat, and agricultural consulting services.
             </p>
             <p className="text-gray-600 mb-8">
               We believe that happy, well-cared-for chickens produce better results—for farmers, consumers, and the environment. Our commitment goes beyond production; we aim to empower farmers with the knowledge and tools to build resilient, efficient, and profitable poultry operations.

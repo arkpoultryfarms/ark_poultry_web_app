@@ -27,7 +27,7 @@ export const blogPosts = [
       </ul>
 
       <h2>Sustainable and Responsible Farming</h2>
-      <p>Sustainability is at the heart of modern agriculture. Through innovative waste management, renewable energy use, and soil enrichment practices, poultry farms like ArkPoultry are reducing their environmental footprint. Key benefits include:</p>
+      <p>Sustainability is at the heart of modern agriculture. Through innovative waste management, renewable energy use, and soil enrichment practices, poultry farms like Ark Poultry are reducing their environmental footprint. Key benefits include:</p>
       <ul>
         <li>Improved soil fertility through organic waste recycling</li>
         <li>Reduced dependence on harmful chemicals</li>
@@ -39,7 +39,7 @@ export const blogPosts = [
       <p>Consumers today care about where their food comes from — and with good reason. Choosing poultry from farms that prioritize animal welfare, sustainability, and food quality means supporting a healthier planet and enjoying better-tasting products.</p>
 
       <h2>Conclusion</h2>
-      <p>Modern poultry farming represents the future of agriculture — ethical, efficient, and sustainable. At ArkPoultry, we’re committed to setting new standards in poultry production, ensuring that every chicken raised contributes to a healthier environment and a more responsible food system.</p>
+      <p>Modern poultry farming represents the future of agriculture — ethical, efficient, and sustainable. At Ark Poultry, we’re committed to setting new standards in poultry production, ensuring that every chicken raised contributes to a healthier environment and a more responsible food system.</p>
     `,
     image: '/images/img2.jpg',
     date: 'May 15, 2023',
@@ -92,7 +92,7 @@ export const blogPosts = [
     title: 'Our New Organic Feed Production Facility',
     excerpt: 'We\'re excited to announce the opening of our new organic feed production facility to support our sustainable farming practices.',
     content: `
-      <p>At ArkPoultry Farm, we believe that quality poultry begins with quality feed. That’s why we’re proud to announce the launch of our new organic feed production facility, a major step forward in our commitment to sustainable, ethical, and high-quality poultry farming.</p>
+      <p>At Ark Poultry Farm, we believe that quality poultry begins with quality feed. That’s why we’re proud to announce the launch of our new organic feed production facility, a major step forward in our commitment to sustainable, ethical, and high-quality poultry farming.</p>
 
       <h2>Raising the Standard for Poultry Nutrition</h2>
       <p>The feed our birds consume directly affects their growth, health, and productivity — and ultimately, the quality of the eggs and meat we produce. Our new facility enables us to create 100% organic feed, free from synthetic additives, antibiotics, or harmful chemicals.
@@ -121,7 +121,7 @@ export const blogPosts = [
       </ul>
 
       <h2>Looking Ahead</h2>
-      <p>The opening of our organic feed facility marks just one milestone in ArkPoultry’s ongoing journey toward agricultural innovation and sustainability. We remain dedicated to creating systems that benefit farmers, animals, and the environment — all while delivering excellence to your table.</p>
+      <p>The opening of our organic feed facility marks just one milestone in Ark Poultry’s ongoing journey toward agricultural innovation and sustainability. We remain dedicated to creating systems that benefit farmers, animals, and the environment — all while delivering excellence to your table.</p>
     `,
     image: '/images/img7.jpg',
     date: 'July 10, 2023',

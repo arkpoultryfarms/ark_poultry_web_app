@@ -62,7 +62,7 @@ export default function ServicesOverview() {
               Comprehensive Agricultural Solutions
             </h2>
             <p className="max-w-2xl mx-auto text-gray-600">
-              At ArkPoultry Farm, we provide a full range of services designed to help farmers enhance productivity, sustainability, and profitability. From quality poultry products to expert consulting, we bring innovation and excellence to every stage of your farming journey.
+              At Ark Poultry Farm, we provide a full range of services designed to help farmers enhance productivity, sustainability, and profitability. From quality poultry products to expert consulting, we bring innovation and excellence to every stage of your farming journey.
             </p>
           </div>
           {services.map((service, index) => <div key={service.id} id={service.id} className={`py-16 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>

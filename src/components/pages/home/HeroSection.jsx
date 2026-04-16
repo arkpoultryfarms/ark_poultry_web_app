@@ -32,7 +32,7 @@ const slides = [
     image: "/images/img4.jpg",
     title: "Empowering Farmers, Enhancing Poultry Production",
     description:
-      "ArkPoultry Farm partners with farmers to deliver practical, hands-on solutions — from feed optimization to disease prevention — helping you grow healthier birds and a stronger business.",
+      "Ark Poultry Farm partners with farmers to deliver practical, hands-on solutions — from feed optimization to disease prevention — helping you grow healthier birds and a stronger business.",
     buttonText: "Learn More",
     buttonLink: "/about",
   },
