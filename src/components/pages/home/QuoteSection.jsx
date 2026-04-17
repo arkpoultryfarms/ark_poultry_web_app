@@ -14,7 +14,6 @@ const QuoteSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
-  const [isWakingUp, setIsWakingUp] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,118 +25,34 @@ const QuoteSection = () => {
     if (error) setError('');
   };
 
-  // Function to check if server is awake
-  const checkServerHealth = async (maxAttempts = 5) => {
-    const healthUrl = 'https://email-service-pubv.onrender.com/health';
-    
-    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
-      try {
-        const response = await fetch(healthUrl, {
-          method: 'GET',
-          signal: AbortSignal.timeout(10000) // 10 second timeout
-        });
-        
-        if (response.ok) {
-          return true;
-        }
-      } catch (error) {
-        console.log(`Health check attempt ${attempt} failed:`, error.message);
-        
-        // Wait before retrying (exponential backoff)
-        if (attempt < maxAttempts) {
-          await new Promise(resolve => setTimeout(resolve, 2000 * attempt));
-        }
-      }
-    }
-    
-    return false;
-  };
-
-  // Function to send email with retries
-  const sendEmailWithRetry = async (data, maxAttempts = 3) => {
-    const apiUrl = 'https://email-service-pubv.onrender.com/send-email';
-    
-    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
-      try {
-        const response = await fetch(apiUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-          signal: AbortSignal.timeout(15000) // 15 second timeout
-        });
-
-        if (response.ok) {
-          const result = await response.json();
-          return { success: true, data: result };
-        }
-
-        // If not successful, try to get error message
-        const errorData = await response.json().catch(() => ({}));
-        
-        // Don't retry on client errors (4xx)
-        if (response.status >= 400 && response.status < 500) {
-          return { 
-            success: false, 
-            error: errorData.message || 'Invalid request. Please check your information.' 
-          };
-        }
-
-        // For server errors (5xx), retry
-        if (attempt === maxAttempts) {
-          return { 
-            success: false, 
-            error: errorData.message || 'Server error. Please try again later.' 
-          };
-        }
-
-      } catch (error) {
-        console.log(`Send email attempt ${attempt} failed:`, error.message);
-        
-        if (attempt === maxAttempts) {
-          return { 
-            success: false, 
-            error: 'Network error. Please check your connection and try again.' 
-          };
-        }
-
-        // Wait before retrying (exponential backoff)
-        await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
-      }
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError('');
-    setIsWakingUp(true);
 
     try {
-      // Step 1: Wake up the server
-      const isServerReady = await checkServerHealth();
+      // Create FormData object for FormSubmit
+      const formSubmitData = new FormData();
+      formSubmitData.append('Full Name', formData.fullname);
+      formSubmitData.append('Email', formData.email);
+      formSubmitData.append('Phone Number', formData.phone);
+      formSubmitData.append('Service Required', formData.service);
+      formSubmitData.append('Message', formData.message);
       
-      if (!isServerReady) {
-        setError('Unable to connect to the email service. Please try again in a moment.');
-        setIsSubmitting(false);
-        setIsWakingUp(false);
-        return;
-      }
+      // Add hidden fields for better email formatting
+      formSubmitData.append('_subject', `New Quote Request from ${formData.fullname}`);
+      formSubmitData.append('_captcha', 'false'); // Disable captcha (optional)
+      formSubmitData.append('_template', 'table'); // Formats email as a nice table
 
-      setIsWakingUp(false);
-
-      // Step 2: Send the email with retries
-      // Note: phone field is collected but not sent to API (API doesn't accept it)
-      const result = await sendEmailWithRetry({
-        fullname: formData.fullname,
-        email: formData.email,
-        service: formData.service,
-        message: formData.message
-        // phone is intentionally not included - API doesn't accept it
+      // Send to FormSubmit
+      const response = await fetch('https://formsubmit.co/ajax/YOUR_EMAIL_HERE', {
+        method: 'POST',
+        body: formSubmitData
       });
 
-      if (result.success) {
+      const result = await response.json();
+
+      if (response.ok && result.success === 'true') {
         setIsSubmitted(true);
         setFormData({
           fullname: '',
@@ -152,15 +67,14 @@ const QuoteSection = () => {
           setIsSubmitted(false);
         }, 8000);
       } else {
-        setError(result.error || 'Failed to send quote request. Please try again.');
+        setError('Failed to send quote request. Please try again.');
       }
 
     } catch (error) {
-      console.error('Unexpected error:', error);
+      console.error('Error:', error);
       setError('An unexpected error occurred. Please try again.');
     } finally {
       setIsSubmitting(false);
-      setIsWakingUp(false);
     }
   };
 
@@ -290,11 +204,7 @@ const QuoteSection = () => {
                   {/* Status Message while submitting */}
                   {isSubmitting && (
                     <div className="mb-4 text-center text-gray-600">
-                      {isWakingUp ? (
-                        <p className="text-sm">Connecting to email service...</p>
-                      ) : (
-                        <p className="text-sm">Sending your quote request...</p>
-                      )}
+                      <p className="text-sm">Sending your quote request...</p>
                     </div>
                   )}
 
@@ -327,7 +237,7 @@ const QuoteSection = () => {
                             d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                           ></path>
                         </svg>
-                        {isWakingUp ? 'Connecting...' : 'Submitting...'}
+                        Submitting...
                       </>
                     ) : (
                       <>
