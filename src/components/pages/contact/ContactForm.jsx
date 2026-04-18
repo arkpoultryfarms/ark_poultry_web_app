@@ -58,7 +58,7 @@ export default function ContactForm() {
                     <MapPin className="text-[#d57315]" size={24} />
                   </div>
                   <p className="text-gray-600 pt-1">
-                    Lagos address: 21 Johnson Oguntuyo Street Atunrase Estate Gbagada Lagos
+                    Farm Address: Lakonu Village, Off Oyo-Iseyin Road, Oyo Town Oyo State, Nigeria
                   </p>
                 </div>
                 <div className="flex items-start">
@@ -66,7 +66,7 @@ export default function ContactForm() {
                     <MapPin className="text-[#d57315]" size={24} />
                   </div>
                   <p className="text-gray-600 pt-1">
-                    Oyo address: Lakonu Village, Off Oyo-Iseyin Road, Oyo Town Oyo State, Nigeria
+                    Lagos Office: 21 Johnson Oguntuyo Street Atunrase Estate Gbagada Lagos
                   </p>
                 </div>
               </div>
@@ -108,7 +108,7 @@ export default function ContactForm() {
                     Working Hours
                   </h4>
                   <p className="text-gray-600">
-                    Weekdays 7am - 4pm
+                    Everyday - 7.00am - 4.00pm
                   </p>
                 </div>
               </div>

@@ -163,7 +163,7 @@ const Footer = () => {
                   className="mr-2 mt-1 text-[#d57315] flex-shrink-0"
                 />
                 <span className="text-gray-300">
-                  Lagos address: 21 Johnson Oguntuyo Street Atunrase Estate Gbagada Lagos
+                  Farm Address: Lakonu Village, Off Oyo-Iseyin Road, Oyo Town Oyo State, Nigeria
                 </span>
               </li>
               <li className="flex items-start">
@@ -172,7 +172,7 @@ const Footer = () => {
                   className="mr-2 mt-1 text-[#d57315] flex-shrink-0"
                 />
                 <span className="text-gray-300">
-                  Oyo address: Lakonu Village, Off Oyo-Iseyin Road, Oyo Town Oyo State, Nigeria
+                  Lagos Office: 21 Johnson Oguntuyo Street Atunrase Estate Gbagada Lagos
                 </span>
               </li>
               <li className="flex items-center">
