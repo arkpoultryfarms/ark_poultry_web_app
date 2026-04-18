@@ -49,16 +49,25 @@ export default function ContactForm() {
               Contact Information
             </h2>
             <div className="bg-gray-50 p-6">
-              <div className="flex items-start">
-                <div className="bg-gray-100 p-3 rounded-full mr-4">
-                  <MapPin className="text-[#d57315]" size={24} />
+              <h4 className="text-lg font-bold text-gray-800 mb-4">
+                Our Locations
+              </h4>
+              <div className="space-y-5">
+                <div className="flex items-start">
+                  <div className="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
+                    <MapPin className="text-[#d57315]" size={24} />
+                  </div>
+                  <p className="text-gray-600 pt-1">
+                    Lagos address: 21 Johnson Oguntuyo Street Atunrase Estate Gbagada Lagos
+                  </p>
                 </div>
-                <div>
-                  <h4 className="text-lg font-bold text-gray-800 mb-1">
-                    Our Location
-                  </h4>
-                  <p className="text-gray-600">Lakonu Village, Off Oyo-Iseyin Road, Oyo Town</p>
-                  <p className="text-gray-600">Oyo State, Nigeria</p>
+                <div className="flex items-start">
+                  <div className="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
+                    <MapPin className="text-[#d57315]" size={24} />
+                  </div>
+                  <p className="text-gray-600 pt-1">
+                    Oyo address: Lakonu Village, Off Oyo-Iseyin Road, Oyo Town Oyo State, Nigeria
+                  </p>
                 </div>
               </div>
             </div>
@@ -85,7 +94,7 @@ export default function ContactForm() {
                   <h4 className="text-lg font-bold text-gray-800 mb-1">
                     Email Address
                   </h4>
-                  <p className="text-gray-600">sales@arkPoultry.com</p>
+                  <p className="text-gray-600">info@arkPoultry.com</p>
                 </div>
               </div>
             </div>
