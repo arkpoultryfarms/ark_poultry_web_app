@@ -23,7 +23,7 @@ const services = [
     icon: <Drumstick size={60} className="text-[#d57315]" />,
     title: "Meat Distribution",
     description:
-      "Our farm-fresh chicken meat is processed under strict hygiene and safety standards, ensuring premium taste and quality. We supply restaurants, grocery stores, and individual customers with reliable, timely deliveries.",
+      "Our farm-fresh chicken and turkey meats are processed under strict hygiene and safety standards, ensuring premium taste and quality. We supply restaurants, grocery stores, and individual customers with reliable, timely deliveries.",
     link: "/services#irrigation",
   },
   // {
