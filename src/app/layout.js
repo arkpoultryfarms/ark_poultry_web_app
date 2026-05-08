@@ -62,8 +62,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@arkpoultry",
-    creator: "@arkpoultry",
+    site: "@ArkPoultryFarms",
+    creator: "@ArkPoultryFarms",
     title: "Ark Poultry | Sustainable Poultry Farming",
     description:
       "Ark Poultry promotes eco-friendly poultry practices and quality farming solutions.",
@@ -92,9 +92,9 @@ export default function RootLayout({ children }) {
       availableLanguage: "English",
     },
     sameAs: [
-      "https://facebook.com/arkpoultry",
-      "https://instagram.com/arkpoultry",
-      "https://twitter.com/arkpoultry",
+      "https://www.facebook.com/ArkPoultry",
+      "https://www.instagram.com/arkpoultryfarms/",
+      "https://twitter.com/ArkPoultryFarms",
     ],
   };
 

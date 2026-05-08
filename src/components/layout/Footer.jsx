@@ -4,11 +4,16 @@ import {
   Facebook,
   Twitter,
   Instagram,
-  Linkedin,
   Mail,
   Phone,
   MapPin,
 } from "lucide-react";
+
+const SOCIAL = {
+  facebook: "https://www.facebook.com/ArkPoultry",
+  twitter: "https://twitter.com/ArkPoultryFarms",
+  instagram: "https://www.instagram.com/arkpoultryfarms/",
+};
 
 const Footer = () => {
   return (
@@ -27,28 +32,31 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href={SOCIAL.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-300 hover:text-[#d57315] transition-colors"
+                aria-label="Ark Poultry on Facebook"
               >
                 <Facebook size={20} />
               </a>
               <a
-                href="#"
+                href={SOCIAL.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-300 hover:text-[#d57315] transition-colors"
+                aria-label="Ark Poultry Farms on X (Twitter)"
               >
                 <Twitter size={20} />
               </a>
               <a
-                href="#"
+                href={SOCIAL.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-300 hover:text-[#d57315] transition-colors"
+                aria-label="Ark Poultry Farms on Instagram"
               >
                 <Instagram size={20} />
-              </a>
-              <a
-                href="#"
-                className="text-gray-300 hover:text-[#d57315] transition-colors"
-              >
-                <Linkedin size={20} />
               </a>
             </div>
           </div>
