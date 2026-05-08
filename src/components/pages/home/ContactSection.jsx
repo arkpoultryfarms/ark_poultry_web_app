@@ -63,7 +63,7 @@ const ContactSection = () => {
               <Mail className="text-[#d57315] mr-2 mt-1 flex-shrink-0" size={60} />
               <span className='flex flex-col text-left'>
                 <h3 className="text-[20px] md:text-[25px] text-white font-semibold">Email</h3>
-                <p className="text-[#d57315] font-semibold text-sm">sales@arkPoultry.com</p>
+                <p className="text-[#d57315] font-semibold text-sm">info@arkpoultry.com</p>
               </span>
             </div>
           </div>
