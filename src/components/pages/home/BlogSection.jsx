@@ -1,39 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import HomeSectionTitle from "@/components/ui/HomeSectionTitle";
-import { Calendar, MessageCircleMore } from 'lucide-react';
-
-const blogPosts = [
-  {
-    id: 1,
-    slug: 'future-sustainable-farming',
-    title: 'The Benefits of Modern Poultry Farming',
-    excerpt: 'Discover how free-range farming practices improve chicken health, egg quality, and environmental sustainability.',
-    image: '/images/img2.jpg',
-    date: 'May 15, 2023',
-    author: '0 comments',
-  },
-  {
-    id: 2,
-    slug: 'smart-farming-technology',
-    title: 'Seasonal Recipe: Farm Fresh Egg Frittata',
-    excerpt: 'Try this delicious recipe using our farm-fresh eggs and seasonal vegetables for a nutritious breakfast option.',
-    image: '/images/img6.jpg',
-    date: 'June 2, 2023',
-    author: '0 comments',
-  },
-  {
-    id: 3,
-    slug: 'organic-farming-benefits-challenges',
-    title: 'Our New Organic Feed Production Facility',
-    excerpt: 'We\'re excited to announce the opening of our new organic feed production facility to support our sustainable farming practices.',
-    image: '/images/img7.jpg',
-    date: 'July 10, 2023',
-    author: '0 comments',
-  },
-];
+import { Calendar } from 'lucide-react';
+import { getLatestPosts } from '@/lib/blogData';
 
 const BlogSection = () => {
+  const latestPosts = getLatestPosts(3);
+
   return (
     <section className="py-20 bg-gray-50" id="blog">
       <div className="container mx-auto px-4">
@@ -51,7 +24,7 @@ const BlogSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post) => (
+          {latestPosts.map((post) => (
             <article
               key={post.id}
               className="bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow border-b-5 border-[#d57315]"
@@ -61,13 +34,9 @@ const BlogSection = () => {
               </Link>
               <div className="p-6">
                 <div className="flex items-center text-sm text-gray-500 mb-3">
-                  <div className="flex items-center mr-4">
+                  <div className="flex items-center">
                     <Calendar size={14} className="mr-1" />
                     <span>{post.date}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <MessageCircleMore size={14} className="mr-1" />
-                    <span>{post.author}</span>
                   </div>
                 </div>
                 <h4 className="text-xl font-bold text-gray-800 mb-3">
@@ -93,6 +62,15 @@ const BlogSection = () => {
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Link
+            href="/blog"
+            className="inline-block px-8 py-3 bg-[#d57315] text-white font-medium hover:bg-[#b35d12] transition-colors"
+          >
+            View All Posts
+          </Link>
         </div>
       </div>
     </section>

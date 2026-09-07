@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { Calendar, MessageCircleMore, User, Tag, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
-import { getBlogPostBySlug, blogPosts } from '@/lib/blogData';
+import { Calendar, User, Tag, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { getBlogPostBySlug, blogPosts, getAllCategories, getAuthorBio } from '@/lib/blogData';
 import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
@@ -10,8 +10,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function BlogPostPage({ params }) {
-  const blogPost = getBlogPostBySlug(params.slug);
+export default async function BlogPostPage({ params }) {
+  const { slug } = await params;
+  const blogPost = getBlogPostBySlug(slug);
 
   if (!blogPost) {
     notFound();
@@ -21,6 +22,8 @@ export default function BlogPostPage({ params }) {
   const relatedPosts = blogPosts
     .filter(post => post.id !== blogPost.id)
     .slice(0, 2);
+
+  const categories = getAllCategories();
 
   return (
     <div className="min-h-screen bg-white">
@@ -35,17 +38,17 @@ export default function BlogPostPage({ params }) {
           <div className="container mx-auto">
             <div className="text-left text-white">
               <h1 className="text-3xl md:text-5xl font-bold mb-4">Blog Post</h1>
-              <span className="flex items-center gap-2 font-semibold text-xl md:text-2xl">
+              <span className="flex items-center flex-wrap gap-2 font-semibold text-xl md:text-2xl">
                 <Link href="/" className="text-[#d57315] hover:underline">
                   Home
                 </Link>
                 <span className="mx-2">/</span>
-                <Link href="/#blog" className="text-[#d57315] hover:underline">
+                <Link href="/blog" className="text-[#d57315] hover:underline">
                   Blog
                 </Link>
                 <span className="mx-2">/</span>
-                <p className="text-white">
-                  Post
+                <p className="text-white line-clamp-1 max-w-full">
+                  {blogPost.title}
                 </p>
               </span>
             </div>
@@ -75,14 +78,13 @@ export default function BlogPostPage({ params }) {
                 <User size={16} className="text-[#d57315]" />
                 <span>{blogPost.author}</span>
               </div>
-              <div className="flex items-center gap-2">
+              <Link
+                href={`/blog?category=${encodeURIComponent(blogPost.category)}`}
+                className="flex items-center gap-2 hover:text-[#d57315] transition-colors"
+              >
                 <Tag size={16} className="text-[#d57315]" />
                 <span>{blogPost.category}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MessageCircleMore size={16} className="text-[#d57315]" />
-                <span>0 Comments</span>
-              </div>
+              </Link>
             </div>
 
             {/* Title */}
@@ -91,51 +93,22 @@ export default function BlogPostPage({ params }) {
             </h1>
 
             {/* Content */}
-            <>
-              <style dangerouslySetInnerHTML={{__html: `
-                .blog-content-area h2 {
-                  font-size: 1.875rem !important;
-                  font-weight: 700 !important;
-                  margin-top: 2rem !important;
-                  margin-bottom: 1rem !important;
-                  color: #1f2937 !important;
-                  line-height: 1.3 !important;
-                }
-                .blog-content-area p {
-                  margin-bottom: 1.25rem !important;
-                  font-size: 1.125rem !important;
-                  line-height: 1.8 !important;
-                  color: #4b5563 !important;
-                }
-                .blog-content-area ul {
-                  list-style-type: disc !important;
-                  margin-left: 2rem !important;
-                  margin-bottom: 1.5rem !important;
-                }
-                .blog-content-area li {
-                  margin-bottom: 0.5rem !important;
-                  font-size: 1.125rem !important;
-                  line-height: 1.8 !important;
-                  color: #4b5563 !important;
-                }
-              `}} />
-              <div 
-                className="blog-content-area mb-8"
-                dangerouslySetInnerHTML={{ __html: blogPost.content }}
-              />
-            </>
+            <div
+              className="blog-content mb-8"
+              dangerouslySetInnerHTML={{ __html: blogPost.content }}
+            />
 
             {/* Tags */}
             <div className="flex flex-wrap items-center gap-3 mb-8 pb-8 border-b">
               <span className="font-semibold text-gray-800">Tags:</span>
               {blogPost.tags.map((tag, index) => (
-                <span
+                <Link
                   key={index}
-                  // href={`/blog?tag=${tag.toLowerCase()}`}
+                  href={`/blog?tag=${encodeURIComponent(tag)}`}
                   className="px-3 py-1 bg-gray-100 text-gray-700 rounded hover:bg-[#d57315] hover:text-white transition-colors text-sm"
                 >
                   {tag}
-                </span>
+                </Link>
               ))}
             </div>
 
@@ -169,10 +142,7 @@ export default function BlogPostPage({ params }) {
                     About {blogPost.author}
                   </h3>
                   <p className="text-gray-600">
-                    Olakunle Olabisi is a seasoned agricultural expert with over 15 years of experience in sustainable farming, poultry management, and agribusiness development. His career has been dedicated to transforming agricultural systems through innovation, ethical practices, and farmer empowerment.
-                    A passionate advocate for modern, eco-friendly farming, Olakunle has worked with both smallholder farmers and commercial producers to improve productivity while preserving environmental balance. His expertise spans livestock nutrition, biosecurity management, and farm automation, helping farmers achieve consistent growth and profitability.
-                    Beyond his technical skill, Olakunle is deeply committed to education and community impact. He regularly leads workshops, training programs, and mentorship initiatives aimed at helping the next generation of farmers adopt smarter and more sustainable practices.
-                    Driven by a vision to make agriculture more profitable, humane, and future-ready, Olakunle continues to champion advancements that bridge the gap between traditional farming and modern agricultural innovation.
+                    {getAuthorBio(blogPost.author)}
                   </p>
                 </div>
               </div>
@@ -202,14 +172,16 @@ export default function BlogPostPage({ params }) {
             <div className="bg-white border border-gray-200 p-6 mb-8">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Categories</h3>
               <ul className="space-y-2">
-                {['Farming Practices', 'Recipes', 'Sustainability', 'News & Updates', 'Animal Welfare'].map((category, index) => (
-                  <li key={index}>
+                {categories.map((cat) => (
+                  <li key={cat}>
                     <Link
-                      href={`/blog?category=${category.toLowerCase()}`}
+                      href={`/blog?category=${encodeURIComponent(cat)}`}
                       className="flex items-center justify-between text-gray-700 hover:text-[#d57315] transition-colors py-2"
                     >
-                      <span>{category}</span>
-                      <span className="text-sm text-gray-500">(5)</span>
+                      <span>{cat}</span>
+                      <span className="text-sm text-gray-500">
+                        ({blogPosts.filter((p) => p.category === cat).length})
+                      </span>
                     </Link>
                   </li>
                 ))}
