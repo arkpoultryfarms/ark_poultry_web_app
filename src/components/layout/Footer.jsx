@@ -118,7 +118,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/services"
+                  href="/services#egg-production"
                   className="text-gray-300 hover:text-[#d57315] transition-colors"
                 >
                   Egg Production
@@ -126,7 +126,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/services#meat-distribution"
                   className="text-gray-300 hover:text-[#d57315] transition-colors"
                 >
                   Meat Distribution
@@ -134,7 +134,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/services#poultry-supply"
                   className="text-gray-300 hover:text-[#d57315] transition-colors"
                 >
                   Poultry Supply
@@ -142,7 +142,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/services#farm-consulting"
                   className="text-gray-300 hover:text-[#d57315] transition-colors"
                 >
                   Farm Consulting
@@ -150,7 +150,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/services#organic-feed-production"
                   className="text-gray-300 hover:text-[#d57315] transition-colors"
                 >
                   Organic Feed

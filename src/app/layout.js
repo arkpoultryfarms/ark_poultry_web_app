@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
@@ -52,7 +53,7 @@ export const metadata = {
     siteName: "Ark Poultry",
     images: [
       {
-        url: "https://www.arkpoultry.com/og-image.jpg",
+        url: "/images/img3.jpg",
         width: 1200,
         height: 630,
         alt: "Ark Poultry sustainable farming",
@@ -67,14 +68,11 @@ export const metadata = {
     title: "Ark Poultry | Sustainable Poultry Farming",
     description:
       "Ark Poultry promotes eco-friendly poultry practices and quality farming solutions.",
-    images: ["https://www.arkpoultry.com/og-image.jpg"],
+    images: ["/images/img3.jpg"],
   },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
   },
-  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({ children }) {
@@ -115,6 +113,10 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="antialiased">
+        <Script
+          src="https://www.google.com/recaptcha/api.js?render=explicit"
+          strategy="afterInteractive"
+        />
         <Header />
         {children}
         <Footer />

@@ -13,7 +13,7 @@ export default function AboutHero() {
                 Home
               </Link>
               <span className="mx-2">/</span>
-              <p className="text-grreen-700">
+              <p className="text-white">
                 About Us
               </p>
             </span>

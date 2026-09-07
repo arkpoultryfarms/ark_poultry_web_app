@@ -14,7 +14,7 @@ export default function ContactHero() {
                 Home
               </Link>
               <span className="mx-2">/</span>
-              <p className="text-grreen-700">
+              <p className="text-white">
                 Contact Us
               </p>
             </span>

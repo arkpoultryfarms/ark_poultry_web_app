@@ -17,14 +17,14 @@ const services = [
     title: "Egg Production",
     description:
       "We produce premium-quality eggs from healthy, free-range chickens. Available in various sizes and packaging options, our eggs are supplied to both retail and wholesale customers who value freshness and nutrition.",
-    link: "/services#crop-management",
+    link: "/services#egg-production",
   },
   {
     icon: <Drumstick size={60} className="text-[#d57315]" />,
     title: "Meat Distribution",
     description:
       "Our farm-fresh chicken and turkey meats are processed under strict hygiene and safety standards, ensuring premium taste and quality. We supply restaurants, grocery stores, and individual customers with reliable, timely deliveries.",
-    link: "/services#irrigation",
+    link: "/services#meat-distribution",
   },
   // {
   //   icon: <LineChart size={60} className="text-[#d57315]" />,
@@ -38,7 +38,7 @@ const services = [
     title: "Farm Consulting",
     description:
       "Our team of experts offers personalized farm consulting services, including poultry management, facility design, feed optimization, and sustainable operation strategies to help you grow efficiently.",
-    link: "/services#soil-testing",
+    link: "/services#farm-consulting",
   },
   // {
   //   icon: <Activity size={60} className="text-[#d57315]" />,
@@ -52,7 +52,7 @@ const services = [
     title: "Farm Tours",
     description:
       "Experience sustainable poultry farming firsthand with our educational farm tours. Ideal for schools, families, and agricultural enthusiasts, these tours offer an inside look into modern, ethical poultry production.",
-    link: "/services#training",
+    link: "/services#farm-tours",
   },
 ];
 

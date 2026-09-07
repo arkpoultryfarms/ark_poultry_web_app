@@ -13,7 +13,7 @@ export default function ServicesHero() {
                 Home
               </Link>
               <span className="mx-2">/</span>
-              <p className="text-grreen-700">
+              <p className="text-white">
                 Services
               </p>
             </span>
