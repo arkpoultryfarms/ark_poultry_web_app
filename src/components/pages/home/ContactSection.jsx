@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import HomeSectionTitle from "@/components/ui/HomeSectionTitle";
 import { MapPin, Phone, Mail, MessageCircleMore, Clock, Send } from 'lucide-react';
-import Recaptcha from "@/components/ui/Recaptcha";
+import Recaptcha, { RECAPTCHA_ENABLED } from "@/components/ui/Recaptcha";
 
 const FORMSUBMIT_ACTION = "https://formsubmit.co/info@arkpoultry.com";
 
@@ -42,7 +42,7 @@ const ContactSection = () => {
   };
 
   const handleSubmit = (e) => {
-    if (!captchaVerified) {
+    if (RECAPTCHA_ENABLED && !captchaVerified) {
       e.preventDefault();
       setCaptchaError(true);
     }

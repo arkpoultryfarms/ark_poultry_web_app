@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import HomeSectionTitle from "@/components/ui/HomeSectionTitle";
 import { Send, Handshake, UserStar, Award, Egg } from 'lucide-react';
-import Recaptcha from "@/components/ui/Recaptcha";
+import Recaptcha, { RECAPTCHA_ENABLED } from "@/components/ui/Recaptcha";
 
 const FORMSUBMIT_ACTION = 'https://formsubmit.co/info@arkpoultry.com';
 
@@ -43,7 +43,7 @@ const QuoteSection = () => {
   };
 
   const handleSubmit = (e) => {
-    if (!captchaVerified) {
+    if (RECAPTCHA_ENABLED && !captchaVerified) {
       e.preventDefault();
       setCaptchaError(true);
     }
