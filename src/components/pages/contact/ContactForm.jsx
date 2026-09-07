@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import Recaptcha from "@/components/ui/Recaptcha";
 
 const FORMSUBMIT_ACTION = "https://formsubmit.co/info@arkpoultry.com";
 
@@ -15,6 +16,8 @@ export default function ContactForm() {
   });
   const [showThankYou, setShowThankYou] = useState(false);
   const [formSubmitNext, setFormSubmitNext] = useState("");
+  const [captchaVerified, setCaptchaVerified] = useState(false);
+  const [captchaError, setCaptchaError] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -37,6 +40,13 @@ export default function ContactForm() {
       ...prev,
       [name]: value,
     }));
+  };
+
+  const handleSubmit = (e) => {
+    if (!captchaVerified) {
+      e.preventDefault();
+      setCaptchaError(true);
+    }
   };
 
   return (
@@ -139,6 +149,7 @@ export default function ContactForm() {
               <form
                 action={FORMSUBMIT_ACTION}
                 method="POST"
+                onSubmit={handleSubmit}
                 className="bg-gray-50 text-gray-700 p-8"
               >
                 <input
@@ -218,6 +229,20 @@ export default function ContactForm() {
                     placeholder="Please describe how we can help you..."
                     required
                   ></textarea>
+                </div>
+
+                <div className="mb-6">
+                  <Recaptcha
+                    onChange={(verified) => {
+                      setCaptchaVerified(verified);
+                      if (verified) setCaptchaError(false);
+                    }}
+                  />
+                  {captchaError && (
+                    <p className="text-red-600 text-sm mt-2">
+                      Please verify you're not a robot before submitting.
+                    </p>
+                  )}
                 </div>
 
                 <button

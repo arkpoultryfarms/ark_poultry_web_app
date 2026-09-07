@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import HomeSectionTitle from "@/components/ui/HomeSectionTitle";
 import { Send, Handshake, UserStar, Award, Egg } from 'lucide-react';
+import Recaptcha from "@/components/ui/Recaptcha";
 
 const FORMSUBMIT_ACTION = 'https://formsubmit.co/info@arkpoultry.com';
 
@@ -15,6 +16,8 @@ const QuoteSection = () => {
   });
   const [showThankYou, setShowThankYou] = useState(false);
   const [formSubmitNext, setFormSubmitNext] = useState('');
+  const [captchaVerified, setCaptchaVerified] = useState(false);
+  const [captchaError, setCaptchaError] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -37,6 +40,13 @@ const QuoteSection = () => {
       ...prev,
       [name]: value
     }));
+  };
+
+  const handleSubmit = (e) => {
+    if (!captchaVerified) {
+      e.preventDefault();
+      setCaptchaError(true);
+    }
   };
 
   return (
@@ -77,6 +87,7 @@ const QuoteSection = () => {
                 <form
                   action={FORMSUBMIT_ACTION}
                   method="POST"
+                  onSubmit={handleSubmit}
                 >
                   <input
                     type="hidden"
@@ -160,6 +171,20 @@ const QuoteSection = () => {
                       rows={4}
                       className="w-full px-3 py-3 border bg-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#d57315]"
                     ></textarea>
+                  </div>
+
+                  <div className="mb-6">
+                    <Recaptcha
+                      onChange={(verified) => {
+                        setCaptchaVerified(verified);
+                        if (verified) setCaptchaError(false);
+                      }}
+                    />
+                    {captchaError && (
+                      <p className="text-red-600 text-sm mt-2">
+                        Please verify you're not a robot before submitting.
+                      </p>
+                    )}
                   </div>
 
                   <button
